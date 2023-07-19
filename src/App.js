@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Imeigodine from "./Imeigodine";
 import ImeigodineKlasa from "./ImeigodineKlasa";
 import ImeGodineChildren from "./ImeGodineChildren";
+import Button from "./Button";
 
 export class App extends Component {
   state = {
@@ -19,6 +20,10 @@ export class App extends Component {
     },
     randomVar: "I volim povijest.",
   };
+
+  dodajGodine = function () {
+    this.setState({ user1: { ime: "Josipa", dob: this.state.user1.dob + 1 } });
+  };
   render() {
     return (
       <div>
@@ -32,6 +37,8 @@ export class App extends Component {
           godine={this.state.user3.dob}
           children={this.state.randomVar}
         ></ImeGodineChildren>
+        <br />
+        <Button counterFunkcija={this.dodajGodine} tekst="Dodaj godine" />
       </div>
     );
   }
